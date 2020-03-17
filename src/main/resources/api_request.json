@@ -1,0 +1,29 @@
+
+{  
+     "requestor_type": "client",
+     "requestor_name": "cisco",
+     "api_key": "YOUR_API_KEY",
+     "events": [
+                 {  
+                    "type": "TYPE1",
+                    "name":  "TOPIC_NAME",   
+                    "message": "CISCO_TYPE_1_MSG_1"
+                 },
+                 {  
+                    "type": "TYPE2",
+                    "name":  "TOPIC_NAME",   
+                    "message": "CISCO_TYPE_2_MSG_2"
+                 },
+                 {  
+                    "type": "TYPE3",
+                    "name":  "TOPIC_NAME",   
+                    "message": "CISCO_TYPE_3_MSG_3"
+                 },
+                 {  
+                    "type": "TYPE4",
+                    "name":  "TOPIC_NAME",   
+                    "message": "CISCO_TYPE_4_MSG_4"
+                 }
+                 
+    ]
+}

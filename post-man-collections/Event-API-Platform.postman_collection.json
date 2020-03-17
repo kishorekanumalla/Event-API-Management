@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "0328f91f-8aee-400e-a704-2c748bb992c6",
+		"name": "Event-API-Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publish Events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ff618d9-1761-4839-92b2-61e8418dedcf",
+						"exec": [
+							"var value = 1+Number(pm.environment.get(\"counter\"));\r",
+							"pm.environment.set(\"counter\", value);\r",
+							"pm.environment.set(\"message\", \"CLIENT_MSG_\" + value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{  \r\n     \"requestor_type\": \"{{requestor_type}}\",\r\n     \"requestor_name\": \"{{requestor_name}}\",\r\n     \"api_key\": \"{{api_key}}\",\r\n     \"events\": [\r\n                 {  \r\n                    \"type\": \"TYPE1\",\r\n                    \"name\":  \"TOPIC_NAME\",   \r\n                    \"message\": \"{{message}}\"\r\n                 },\r\n                 {  \r\n                    \"type\": \"TYPE2\",\r\n                    \"name\":  \"TOPIC_NAME\",   \r\n                    \"message\": \"{{message}}\"\r\n                 },\r\n                 {  \r\n                    \"type\": \"TYPE3\",\r\n                    \"name\":  \"TOPIC_NAME\",   \r\n                    \"message\": \"{{message}}\"\r\n                 },\r\n                 {  \r\n                    \"type\": \"TYPE4\",\r\n                    \"name\":  \"TOPIC_NAME\",   \r\n                    \"message\": \"{{message}}\"\r\n                 }\r\n                 \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/event-api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event-api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Request Metrics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/metric-graph",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"metric-graph"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "588994f7-4a13-4656-b90e-524eb6da0c65",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0101989d-ebab-4f41-9fa6-2124f7f65dc8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
